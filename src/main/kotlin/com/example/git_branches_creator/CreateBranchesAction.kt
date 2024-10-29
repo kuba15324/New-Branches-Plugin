@@ -3,8 +3,6 @@ package com.example.git_branches_creator
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.ui.Messages
-import com.intellij.openapi.vcs.FileStatus
-import com.intellij.openapi.vcs.changes.ChangeListManager
 import git4idea.branch.GitBrancher
 import git4idea.commands.Git
 import git4idea.commands.GitCommand
@@ -44,7 +42,6 @@ class CreateBranchesAction : AnAction() {
         }
 
         GitBrancher.getInstance(project).apply {
-            createBranch(branchName, repoWithChanges.associateWith { it.currentBranch?.name })
             checkoutNewBranch(branchName, repoWithChanges)
         }
     }
